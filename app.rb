@@ -14,5 +14,40 @@ before { puts; puts "--------------- NEW REQUEST ---------------"; puts }       
 after { puts; }                                                                       #
 #######################################################################################
 
-events_table = DB.from(:events)
-rsvps_table = DB.from(:rsvps)
+user_table = DB.from(:user)
+recipe_table = DB.from(:recipe)
+comment_table = DB.from(:comment)
+
+get "/" do
+    view "index"
+end
+
+get "/index" do
+    view "index"
+end
+
+get "/fail" do
+    view "fail"
+end
+
+get "/signup" do
+    view "signup"
+end
+
+get "/address" do
+    view "address"
+end
+
+get "/home" do
+    view "home"
+end
+
+get "/submit" do
+    view "submit"
+end
+
+#do I need a new get for every webpage? 
+
+get "/recipe" do
+    view "recipe"
+end

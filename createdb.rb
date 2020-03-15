@@ -10,12 +10,9 @@ DB.create_table! :user do
   String :namefirst
   String :namelast
   String :email
-  String :password
-  
-  String :description, text: true
-  String :date
-  String :location
+  String :pwd
 end
+
 DB.create_table! :recipe do
   primary_key :id
   foreign_key :user_id
@@ -29,16 +26,17 @@ DB.create_table! :recipe do
   String :ingredients, text: true
   String :directions, text: true
   #String :photo
-  #String :headshot
+  #String :headshotf
   String :meal
   Boolean :meatless
   Boolean :dairyfree
   Boolean :glutenfree
 end
-DB.create_table! :comments do
+
+DB.create_table! :comment do
   primary_key :id
   foreign_key :user_id
-  foreign_keyy :recipe_id
+  foreign_key :recipe_id
   Boolean :like
   String :comment, text: true
 end
