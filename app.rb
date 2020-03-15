@@ -22,10 +22,6 @@ get "/" do
     view "index"
 end
 
-get "/index" do
-    view "index"
-end
-
 get "/fail" do
     view "fail"
 end
@@ -39,6 +35,11 @@ get "/address" do
 end
 
 get "/home" do
+    puts "params: #{params}"
+
+    pp recipe_table.all.to_a
+    @recipe = recipe_table.all.to_a
+
     view "home"
 end
 
@@ -49,5 +50,10 @@ end
 #do I need a new get for every webpage? 
 
 get "/recipe" do
+    puts "params: #{params}"
+
+    pp recipe_table.all.to_a
+
+
     view "recipe"
 end

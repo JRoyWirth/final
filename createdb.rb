@@ -42,14 +42,72 @@ DB.create_table! :comment do
 end
 
 # Insert initial (seed) data
-events_table = DB.from(:events)
+recipe_table = DB.from(:recipe)
 
-events_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
-                    location: "Kellogg Global Hub")
+recipe_table.insert(
+                    year: "2021",
+                    kwest: "Amazing Race",
+                    title: "BBQ Ribs",
+                    shortdesc: "Sous-vide style midwestern BBQ ribs with homemade sauce",
+                    whyrecipe: "Growing up, I only ate 3 foods at resturants: fried catfish, apple pie and ribs but each is best homemade!",
+                    location: "Illinois, U.S.A.",
+                    ingredients: "1 rack BBQ ribs, brown sugar, spices",
+                    directions: "1. pat ribs dry...",
+                    meal: "Dinner",
+                    meatless: "0",
+                    dairyfree: "1",
+                    glutenfree: "1"
+                    )
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+recipe_table.insert(
+                    year: "2021",
+                    kwest: "Amazing Race",
+                    title: "Lasagna",
+                    shortdesc: "Lasagna with meat sauce",
+                    whyrecipe: "Every year on Christmas Day my dad would make stuffed shells or lasagna. This lasagna is what dreams are made of",
+                    location: "Scottsdale, Arizona",
+                    ingredients: "1. box lasagna, 8 oz tomato paste, 1 bunch fresh basil",
+                    directions: "1. cut italian sausage length-wise...",
+                    meal: "Dinner",
+                    meatless: "0",
+                    dairyfree: "0",
+                    glutenfree: "0"
+                    )
+
+recipe_table.insert(
+                    year: "2021",
+                    kwest: "Amazing Race",
+                    title: "Vegetarian Pulled BBQ Sandy",
+                    shortdesc: "A vege take on a Texas classic BBQ handheld",
+                    whyrecipe: "Being both a diehard Texan and a dedicated vegetarian, sounds tough but this dish proves otherwise!",
+                    location: "Texas",
+                    ingredients: "1 can jackfruit, 8 oz BBQ sauce (thick and spicy)",
+                    directions: "1. put jackfruit and sauce in a slowcooker...",
+                    meal: "Lunch",
+                    meatless: "1",
+                    dairyfree: "1",
+                    glutenfree: "0"
+                    )
+
+user_table = DB.from(:user)
+
+user_table.insert(
+                    namefirst: "Jason",
+                    namelast: "Wirth",
+                    email: "jason.wirth@kellogg.northwestern.edu",
+                    pwd: "1234"
+                    )
+
+user_table.insert(
+                    namefirst: "Sarah",
+                    namelast: "Wirth",
+                    email: "sarahnwirth@gmail.com",
+                    pwd: "1234"
+                    )
+
+user_table.insert(
+                    namefirst: "Sai",
+                    namelast: "Guntari",
+                    email: "sai.guntari@kellogg.northwestern.edu",
+                    pwd: "1234"
+                    )

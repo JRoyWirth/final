@@ -53,10 +53,39 @@
     <div class="row">
         <p>placeholder for a detailed description of the purpose / mission of the website</p>
     </div>
+    <% for recipe in @recipe %>
+        <div class="row">
+                <div class="col-sm-2">
+                    <p>
+                        <a href="/recipe"><%= recipe[:title] %> <a>
+                    </p>
+                </div>
 
-    <div class="row">
-        <p> placeholder for a loop of prints of recipes from the database </p>
-    </div>
+                <div class="col-sm-2">
+                    <p>
+                        <a href="/recipe"><%= recipe[:userid] %> <a>
+                    </p>
+                </div>
+
+                <div class="col-sm-1">
+                    <p>
+                        <a href="/recipe"><%= recipe[:kwest] %> <a>
+                    </p>
+                </div>
+
+                <div class="col-sm-2">
+                    <p>
+                        <a href="/recipe"><%= recipe[:location] %> <a>
+                    </p>
+                </div>
+
+                <div class="col-sm-5">
+                    <p>
+                        <a href="/recipe"><%= recipe[:shortdesc] %> <a>
+                    </p>
+                </div>
+        </div>
+    <% end %>
 </div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
