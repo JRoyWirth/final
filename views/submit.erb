@@ -26,7 +26,7 @@
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Kellogg Recipe Project</h1>
-  <p>Connect with your classmates over authentic meals from across the world!</p> 
+  <p>Connect with your classmates through their authentic recipes from across the world!</p> 
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -55,17 +55,79 @@
     </div>
     
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm">
             <form action="/action_page.php">
                 <div class="form-group">
-                    <label for="email">Email address:</label>
-                    <input type="email" class="form-control" placeholder="Enter email" id="email">
+                    <label for="year">Year:</label>
+                    <input type="text" class="form-control" placeholder="Kellogg graduation year" id="year">
                 </div>
                 <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                    <label for="kwest">Kwest:</label>
+                    <input type="text" class="form-control" placeholder="Kellogg kwest trip name" id="kwest">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="title">Title of Recipe:</label>
+                    <input type="text" class="form-control" placeholder="Apple Pie" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="shortdesc">Short description of the dish:</label>
+                    <input type="text" class="form-control" rows="2" placeholder="Pastry dessert with baked apple filling" id="kwest">
+                </div>
+                <div class="form-group">
+                    <label for="whyrecipe">This dish means something to me because: </label>
+                    <textarea class="form-control" rows="2" id="whyrecipe"> examples: As a kid, I always wanted pie on my birthday! Apple pie especially reminds me of growing up in the midwest... or A moment I will never forget was living in ___ and always making.... or Every year when we visited my grandparents in ___ they would make....
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location">This recipe comes from:</label>
+                    <input type="text" class="form-control" placeholder="Downers Grove, IL or Illinois, U.S.A. or United States" id="kwest">
+                </div>
+                <div class="form-group">
+                    <label for="ingredientslocal">Ingredients:</label>
+                    <textarea class="form-control" rows=10 id="ingredientslocal"> 
+example:
+2 cups flour
+1/2 cup sugar
+5 green apples...
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ingredientssubs">Substitutions for ingredients difficult to obtain in Evanston:</label>
+                    <textarea class="form-control" rows="3" id="ingredientssubs">
+example: Red apples can be substituted for green apples, use less sugar...
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="directions">Directions:</label>
+                    <textarea class="form-control" rows="10" id="directions">
+example: 1. Core and peel each apple...
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="meal">Meal Type:</label><br>
+                    <select id="meal" name="meal">
+                        <option value="App">Appetizer</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Side Dish">Side</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Beverage">Beverage</option>
+                    </select>
+                </div>
+                <div>
+                    <h7>Dietary restrictions:<br></h7>
+                    <form>
+                        <input type="checkbox" id="meatless" name="meatless" value="1">
+                            <label for="meatless"> Meat free </label><br>
+                        <input type="checkbox" id="dairyfree" name="dairyfree" value="1">
+                            <label for="dairyfree"> Dairy free </label><br>
+                        <input type="checkbox" id="glutenfree" name="glutenfree" value="1">
+                            <label for="glutenfree"> Gluten free </label>
+                    </form>
+                </div>
+                <br> <button type="submit" class="btn btn-primary">Submit</button> <br><br>
+
             </form>
         
         </div>
