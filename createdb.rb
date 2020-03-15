@@ -24,6 +24,7 @@ DB.create_table! :recipe do
   String :whyrecipe, text: true
   String :location
   String :ingredients, text: true
+  String :subs, text: true
   String :directions, text: true
   #String :photo
   #String :headshotf
@@ -52,6 +53,7 @@ recipe_table.insert(
                     whyrecipe: "Growing up, I only ate 3 foods at resturants: fried catfish, apple pie and ribs but each is best homemade!",
                     location: "Illinois, U.S.A.",
                     ingredients: "1 rack BBQ ribs, brown sugar, spices",
+                    subs: "instead of using extra sauce, try reapplying dry rub",
                     directions: "1. pat ribs dry...",
                     meal: "Dinner",
                     meatless: "0",
@@ -67,6 +69,7 @@ recipe_table.insert(
                     whyrecipe: "Every year on Christmas Day my dad would make stuffed shells or lasagna. This lasagna is what dreams are made of",
                     location: "Scottsdale, Arizona",
                     ingredients: "1. box lasagna, 8 oz tomato paste, 1 bunch fresh basil",
+                    subs: "use eggplant slices instead of ground meats",
                     directions: "1. cut italian sausage length-wise...",
                     meal: "Dinner",
                     meatless: "0",
@@ -82,6 +85,7 @@ recipe_table.insert(
                     whyrecipe: "Being both a diehard Texan and a dedicated vegetarian, sounds tough but this dish proves otherwise!",
                     location: "Texas",
                     ingredients: "1 can jackfruit, 8 oz BBQ sauce (thick and spicy)",
+                    subs: "n/a",
                     directions: "1. put jackfruit and sauce in a slowcooker...",
                     meal: "Lunch",
                     meatless: "1",

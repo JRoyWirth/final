@@ -30,7 +30,7 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Kellogg Recipe Project</a>
+    <a class="navbar-brand" href="/">Kellogg Recipe Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,36 +53,50 @@
 
     <div class="row">
         <div class="col-sm-4">
-            <p>placeholder for recipe title</p>
+            <p>
+                <%= @recipe[:title] %>
+            </p>
         </div>
         <div class="col-sm-8">
-            <p>placeholder for short description</p>
+            <p>
+                <%= @recipe[:shortdesc] %>
+            </p>
         </div>
     </div>
     
     <div class="row">
         <div class="col-sm-4">
-            <p>placeholder for map</p>
+            <p>
+                <%= @recipe[:location] %>
+            </p>
         </div>
         <div class="col-sm-4">
             <p>placeholder for headshot</p>
         </div>
         <div class="col-sm-4">
-            <p>placeholder for why this recipe</p>
+            <p>
+                <%= @recipe[:whyrecipe] %>
+            </p>
         </div>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
             <div class="row">
-                <p>placeholder for ingredients</p>
+                <p>
+                    <%= @recipe[:ingredients] %>
+                </p>
             </div>
             <div class="row">
-                <p>placeholder for subs</p>
+                <p>
+                    <%= @recipe[:subs] %>
+                </p>
             </div>
         </div>
         <div class="col-sm-6">
-            <p>placeholder for directions</p>
+            <p>
+                <%= @recipe[:directions] %>
+            </p>
         </div>
     </div>
 

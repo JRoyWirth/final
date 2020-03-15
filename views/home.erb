@@ -30,7 +30,7 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="/index">Kellogg Recipe Project</a>
+    <a class="navbar-brand" href="/">Kellogg Recipe Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,11 +53,11 @@
     <div class="row">
         <p>placeholder for a detailed description of the purpose / mission of the website</p>
     </div>
-    <% for recipe in @recipe %>
+    <% for recipe in @recipes %>
         <div class="row">
                 <div class="col-sm-2">
                     <p>
-                        <a href="/recipe"><%= recipe[:title] %> <a>
+                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:title] %> <a>
                     </p>
                 </div>
 

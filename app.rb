@@ -38,7 +38,7 @@ get "/home" do
     puts "params: #{params}"
 
     pp recipe_table.all.to_a
-    @recipe = recipe_table.all.to_a
+    @recipes = recipe_table.all.to_a
 
     view "home"
 end
@@ -49,11 +49,13 @@ end
 
 #do I need a new get for every webpage? 
 
-get "/recipe" do
+get "/recipe/:id" do
     puts "params: #{params}"
 
     pp recipe_table.all.to_a
 
+    pp recipe_table.where(id: params["id"]).to_a[0]
+    @recipe = recipe_table.where(id: params["id"]).to_a[0]
 
     view "recipe"
 end
