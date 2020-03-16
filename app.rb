@@ -48,13 +48,23 @@ get "/submit" do
     view "submit"
 end
 
-get "/submit_copy" do
-    puts "params: #{params}"
-    view "submit_copy"
-end
-
 get "/recipe/create" do
     puts "params: #{params}"
+
+    recipe_table.insert(
+        year: params["year"],
+        kwest: params["kwest"],
+        title: params["title"],
+        shortdesc: params["shortdesc"],
+        whyrecipe: params["whyrecipe"],
+        location: params["location"],
+        subs: params["subs"],
+        directions: params["directions"],
+        meal: params["meal"],
+        meatless: params["meatless"],
+        dairyfree: params["dairyfree"],
+        glutenfree: params["glutenfree"],  
+    )
 
     view "create_recipe"
 end
