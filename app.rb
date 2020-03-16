@@ -19,6 +19,8 @@ recipe_table = DB.from(:recipe)
 comment_table = DB.from(:comment)
 
 get "/" do
+    @user = user_table.where(email: params["email"]).to_a[0]
+    pp @user
     view "index"
 end
 
@@ -30,8 +32,17 @@ get "/signup" do
     view "signup"
 end
 
-get "/address" do
-    view "address"
+get "/signup/create" do
+    puts "params: #{params}"
+    
+    user_table.insert(
+        namefirst: params["namefirst"],
+        namelast: params["namelast"],
+        email: params["email"],
+        pwd: params["pwd"]
+    )
+
+    view "create_user"
 end
 
 get "/home" do
