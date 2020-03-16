@@ -4,7 +4,7 @@ require "sinatra/reloader" if development?                                      
 require "sequel"                                                                      #
 require "logger"                                                                      #
 require "twilio-ruby"                                                                 #
-require "bcrypt"                                                                      #
+require "bcrypt"                                                                 #
 connection_string = ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite3"  #
 DB ||= Sequel.connect(connection_string)                                              #
 DB.loggers << Logger.new($stdout) unless DB.loggers.size > 0                          #
@@ -44,7 +44,19 @@ get "/home" do
 end
 
 get "/submit" do
+    puts "params: #{params}"
     view "submit"
+end
+
+get "/submit_copy" do
+    puts "params: #{params}"
+    view "submit_copy"
+end
+
+get "/recipe/create" do
+    puts "params: #{params}"
+
+    view "create_recipe"
 end
 
 #do I need a new get for every webpage? 
@@ -56,6 +68,7 @@ get "/recipe/:id" do
 
     pp recipe_table.where(id: params["id"]).to_a[0]
     @recipe = recipe_table.where(id: params["id"]).to_a[0]
+
 
     view "recipe"
 end

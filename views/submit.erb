@@ -30,7 +30,7 @@
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Kellogg Recipe Project</a>
+    <a class="navbar-brand" href="/">Kellogg Recipe Project</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -56,35 +56,35 @@
     
     <div class="row">
         <div class="col-sm">
-            <form action="/action_page.php">
+            <form action="/recipe/create">
                 <div class="form-group">
                     <label for="year">Year:</label>
-                    <input type="text" class="form-control" placeholder="Kellogg graduation year" id="year">
+                    <input type="text" class="form-control" placeholder="Kellogg graduation year" name="year">
                 </div>
                 <div class="form-group">
                     <label for="kwest">Kwest:</label>
-                    <input type="text" class="form-control" placeholder="Kellogg kwest trip name" id="kwest">
+                    <input type="text" class="form-control" placeholder="Kellogg kwest trip name" name="kwest">
                 </div>
                 <div class="form-group">
                     <label for="title">Title of Recipe:</label>
-                    <input type="text" class="form-control" placeholder="Apple Pie" id="title">
+                    <input type="text" class="form-control" placeholder="Apple Pie" name="title">
                 </div>
                 <div class="form-group">
                     <label for="shortdesc">Short description of the dish:</label>
-                    <input type="text" class="form-control" rows="2" placeholder="Pastry dessert with baked apple filling" id="kwest">
+                    <input type="text" class="form-control" rows="2" placeholder="Pastry dessert with baked apple filling" name="shortdesc">
                 </div>
                 <div class="form-group">
                     <label for="whyrecipe">This dish means something to me because: </label>
-                    <textarea class="form-control" rows="2" id="whyrecipe"> examples: As a kid, I always wanted pie on my birthday! Apple pie especially reminds me of growing up in the midwest... or A moment I will never forget was living in ___ and always making.... or Every year when we visited my grandparents in ___ they would make....
+                    <textarea class="form-control" rows="2" name="whyrecipe"> examples: As a kid, I always wanted pie on my birthday! Apple pie especially reminds me of growing up in the midwest... or A moment I will never forget was living in ___ and always making.... or Every year when we visited my grandparents in ___ they would make....
                     </textarea>
                 </div>
                 <div class="form-group">
                     <label for="location">This recipe comes from:</label>
-                    <input type="text" class="form-control" placeholder="Downers Grove, IL or Illinois, U.S.A. or United States" id="kwest">
+                    <input type="text" class="form-control" placeholder="Downers Grove, IL or Illinois, U.S.A. or United States (city level is best)" name="location">
                 </div>
                 <div class="form-group">
                     <label for="ingredientslocal">Ingredients:</label>
-                    <textarea class="form-control" rows=10 id="ingredientslocal"> 
+                    <textarea class="form-control" rows=10 name="ingredientslocal"> 
 example:
 2 cups flour
 1/2 cup sugar
@@ -93,19 +93,19 @@ example:
                 </div>
                 <div class="form-group">
                     <label for="ingredientssubs">Substitutions for ingredients difficult to obtain in Evanston:</label>
-                    <textarea class="form-control" rows="3" id="ingredientssubs">
+                    <textarea class="form-control" rows="3" name="ingredientssubs">
 example: Red apples can be substituted for green apples, use less sugar...
                     </textarea>
                 </div>
                 <div class="form-group">
                     <label for="directions">Directions:</label>
-                    <textarea class="form-control" rows="10" id="directions">
+                    <textarea class="form-control" rows="10" name="directions">
 example: 1. Core and peel each apple...
                     </textarea>
                 </div>
                 <div class="form-group">
                     <label for="meal">Meal Type:</label><br>
-                    <select id="meal" name="meal">
+                    <select name="meal">
                         <option value="App">Appetizer</option>
                         <option value="Breakfast">Breakfast</option>
                         <option value="Lunch">Lunch</option>
@@ -115,21 +115,17 @@ example: 1. Core and peel each apple...
                         <option value="Beverage">Beverage</option>
                     </select>
                 </div>
-                <div>
+                <div class="form-group">
                     <h7>Dietary restrictions:<br></h7>
-                    <form>
-                        <input type="checkbox" id="meatless" name="meatless" value="1">
+                        <input type="checkbox" name="meatless" value="1">
                             <label for="meatless"> Meat free </label><br>
-                        <input type="checkbox" id="dairyfree" name="dairyfree" value="1">
+                        <input type="checkbox" name="dairyfree" value="1">
                             <label for="dairyfree"> Dairy free </label><br>
-                        <input type="checkbox" id="glutenfree" name="glutenfree" value="1">
-                            <label for="glutenfree"> Gluten free </label>
-                    </form>
+                        <input type="checkbox" name="glutenfree" value="1">
+                            <label for="glutenfree"> Gluten free </label><br>
                 </div>
-                <br> <button type="submit" class="btn btn-primary">Submit</button> <br><br>
-
-            </form>
-        
+            <br> <button type="submit" class="btn btn-primary">Submit</button> <br><br>
+            </form>     
         </div>
 </div>
 </div>

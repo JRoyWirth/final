@@ -67,11 +67,21 @@
     <div class="row">
         <div class="col-sm-4">
             <p>
-                <%= @recipe[:location] %>
+                <iframe
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+                &q=<%= @recipe[:location] %>&zoom=5" allowfullscreen>
+                </iframe>
             </p>
         </div>
         <div class="col-sm-4">
-            <p>placeholder for headshot</p>
+            <p>
+                <iframe
+                frameborder="0" style="border:0"
+                src="<%= @recipe[:headshot] %>" allowfullscreen>
+                </iframe>
+            [placeholder for a headshot]
+            </p>
         </div>
         <div class="col-sm-4">
             <p>

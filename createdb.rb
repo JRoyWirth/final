@@ -27,7 +27,7 @@ DB.create_table! :recipe do
   String :subs, text: true
   String :directions, text: true
   #String :photo
-  #String :headshotf
+  String :headshot
   String :meal
   Boolean :meatless
   Boolean :dairyfree
@@ -55,6 +55,7 @@ recipe_table.insert(
                     ingredients: "1 rack BBQ ribs, brown sugar, spices",
                     subs: "instead of using extra sauce, try reapplying dry rub",
                     directions: "1. pat ribs dry...",
+                    headshot: "https://images.app.goo.gl/fYWKfTdH3RG5LGGv7",
                     meal: "Dinner",
                     meatless: "0",
                     dairyfree: "1",
@@ -71,6 +72,7 @@ recipe_table.insert(
                     ingredients: "1. box lasagna, 8 oz tomato paste, 1 bunch fresh basil",
                     subs: "use eggplant slices instead of ground meats",
                     directions: "1. cut italian sausage length-wise...",
+                    headshot: "https://images.app.goo.gl/fYWKfTdH3RG5LGGv7",
                     meal: "Dinner",
                     meatless: "0",
                     dairyfree: "0",
@@ -87,6 +89,7 @@ recipe_table.insert(
                     ingredients: "1 can jackfruit, 8 oz BBQ sauce (thick and spicy)",
                     subs: "n/a",
                     directions: "1. put jackfruit and sauce in a slowcooker...",
+                    headshot: "https://images.app.goo.gl/fYWKfTdH3RG5LGGv7",
                     meal: "Lunch",
                     meatless: "1",
                     dairyfree: "1",
@@ -115,3 +118,6 @@ user_table.insert(
                     email: "sai.guntari@kellogg.northwestern.edu",
                     pwd: "1234"
                     )
+
+
+puts "Success!"
