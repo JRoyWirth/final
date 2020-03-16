@@ -19,13 +19,26 @@ recipe_table = DB.from(:recipe)
 comment_table = DB.from(:comment)
 
 get "/" do
-    @user = user_table.where(email: params["email"]).to_a[0]
-    pp @user
+    
+
     view "index"
 end
 
-get "/fail" do
-    view "fail"
+get "/login/create" do
+    puts "params: #{params}"
+    
+    @user = user_table.where(email: params["email"]).to_a[0]
+    pp @user
+
+    if @user
+        if @user[:pwd] == params["pwd"]
+            view "create_login"
+        else
+            view "fail"
+        end
+    else 
+        view "fail"
+    end
 end
 
 get "/signup" do
@@ -48,6 +61,7 @@ end
 get "/home" do
     puts "params: #{params}"
 
+       
     pp recipe_table.all.to_a
     @recipes = recipe_table.all.to_a
 
