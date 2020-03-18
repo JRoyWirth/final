@@ -25,16 +25,17 @@ get "/" do
     view "index"
 end
 
-get "/login/create" do
+post "/login/create" do
     puts "params: #{params}"
     
     @user = user_table.where(email: params["email"]).to_a[0]
     pp @user
 
     if @user
-        if @user[:pwd] == params["pwd"]
-
-            cookies["user_id"] = @user[:id]
+        if BCrypt::Password.new(@user[:pwd]) == params["pwd"]
+            
+            # know the user is logged in -> rack.session is what will show up in dev tools with an encrypted ID
+            session["user_id"] = @user[:id]
 
             view "create_login"
         else
@@ -49,14 +50,14 @@ get "/signup" do
     view "signup"
 end
 
-get "/signup/create" do
+post "/signup/create" do
     puts "params: #{params}"
     
     user_table.insert(
         namefirst: params["namefirst"],
         namelast: params["namelast"],
         email: params["email"],
-        pwd: params["pwd"]
+        pwd: BCrypt::Password.create(params["pwd"])
     )
 
     view "create_user"
@@ -65,7 +66,8 @@ end
 get "/home" do
     puts "params: #{params}"
 
-       
+    @user_table = user_table
+    @current_user = @user_table.where(id: session["user_id"]).to_a[0]  
     pp recipe_table.all.to_a
     @recipes = recipe_table.all.to_a
 
@@ -79,6 +81,8 @@ end
 
 get "/recipe/create" do
     puts "params: #{params}"
+
+    current_user = @user_table.where(id: session["user_id"]).to_a[0]  
 
     recipe_table.insert(
         year: params["year"],
@@ -103,6 +107,8 @@ end
 get "/recipe/:id" do
     puts "params: #{params}"
 
+    current_user = @user_table.where(id: session["user_id"]).to_a[0]  
+    
     pp recipe_table.all.to_a
 
     pp recipe_table.where(id: params["id"]).to_a[0]
