@@ -1,6 +1,7 @@
 # Set up for the application and database. DO NOT CHANGE. #############################
 require "sinatra"                                                                     #
 require "sinatra/reloader" if development?                                            #
+require "sinatra/cookies" 
 require "sequel"                                                                      #
 require "logger"                                                                      #
 require "twilio-ruby"                                                                 #
@@ -32,6 +33,9 @@ get "/login/create" do
 
     if @user
         if @user[:pwd] == params["pwd"]
+
+            cookies["user_id"] = @user[:id]
+
             view "create_login"
         else
             view "fail"
