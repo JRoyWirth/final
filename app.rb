@@ -19,16 +19,22 @@ user_table = DB.from(:user)
 recipe_table = DB.from(:recipe)
 comment_table = DB.from(:comment)
 
-get "/" do
-    
+# established the following code before taking any other route
+before do
 
+    puts "params: #{params}"
+    @user_table = user_table
+    @current_user = @user_table.where(id: session["user_id"]).to_a[0]
+end
+
+get "/" do
     view "index"
 end
 
 post "/login/create" do
     puts "params: #{params}"
-    
-    @user = user_table.where(email: params["email"]).to_a[0]
+
+    @user = @user_table.where(email: params["email"]).to_a[0]
     pp @user
 
     if @user
@@ -66,8 +72,6 @@ end
 get "/home" do
     puts "params: #{params}"
 
-    @user_table = user_table
-    @current_user = @user_table.where(id: session["user_id"]).to_a[0]  
     pp recipe_table.all.to_a
     @recipes = recipe_table.all.to_a
 
@@ -81,8 +85,7 @@ end
 
 get "/recipe/create" do
     puts "params: #{params}"
-
-    current_user = @user_table.where(id: session["user_id"]).to_a[0]  
+      
 
     recipe_table.insert(
         year: params["year"],
@@ -107,8 +110,8 @@ end
 get "/recipe/:id" do
     puts "params: #{params}"
 
-    current_user = @user_table.where(id: session["user_id"]).to_a[0]  
-    
+      
+
     pp recipe_table.all.to_a
 
     pp recipe_table.where(id: params["id"]).to_a[0]
@@ -116,4 +119,9 @@ get "/recipe/:id" do
 
 
     view "recipe"
+end
+
+get "/logout" do
+    session["user_id"] = nil
+    view "create_logout"
 end

@@ -39,9 +39,14 @@
         <li class="nav-item">
         <a class="nav-link" href="/home">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Sign Up</a>
-      </li>    
+     <% if @current_user %>
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Logged in as <%= @current_user[:namefirst]%> <%= @current_user[:namelast]%></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Log Out</a>
+        </li>
+    <% end %>
     </ul>
   </div>  
 </nav>
