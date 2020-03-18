@@ -10,16 +10,18 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/submit">Submit Recipe</a>
-        </li>    
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Log In</a>
         </li>
-        <% if @current_user %>
-            <li class="nav-item">
+   </ul>
+    <% if @current_user %>
+        <ul class="navbar-nav ml-auto">
+            <li class="navbar-nav ml-auto">
                 <a class="nav-link" href="/login">Logged in as <%= @current_user[:namefirst]%> <%= @current_user[:namelast]%></a>
             </li>
-        <% end %>    
-    </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+        </ul>
+    <% end %>
   </div>  
 </nav>
 
