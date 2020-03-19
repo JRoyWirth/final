@@ -62,7 +62,7 @@
     </div>
     <div class="row">
         <div class="col-sm">
-            <form action="/comment/create" method="post">
+            <form action="/recipe/<%= @recipe[:id] %>/comment/create" method="post">
                 <div class="form-group">
                     <h7>Did you like this recipe?:<br></h7>
                         <input type="checkbox" name="like" value="1">

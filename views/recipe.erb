@@ -121,11 +121,26 @@
         <p>placeholder for likes</p>
     </div>
 
+<% for comment in @comment_table %>
+    <% if comment[:recipe_id] == @recipe[:id] %>
+        <div class="row">
+            <div class="col-sm-2">
+                <%= comment[:user_id] %>
+            </div>
+            <div class="col-sm">
+                <%= comment[:comment] %>
+            </div>                
+        </div>
+    <% else %>
+    <% end %>
+<% end %>
+
+
     <div class="row">
         <% if @current_user %>
             <a href="/recipe/<%= @recipe[:id] %>/comment/new" class="btn btn-primary">comment on this recipe</a>
         <% else %>
-            <a href="/" class="btn btn-danger">please sign in to comment</a>
+                <p> nil </p>
         <% end %>
     </div>
 

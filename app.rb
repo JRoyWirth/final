@@ -113,14 +113,10 @@ get "/recipe/:id" do
     pp recipe_table.where(id: params["id"]).to_a[0]
     @recipe = recipe_table.where(id: params["id"]).to_a[0]
 
-    pp @recipe
-
     @comment_table = comment_table
 
     @comment = comment_table.where(recipe_id: @recipe[:id]).to_a[0]
     
-    pp @comment_table
-
 
     view "recipe"
 end
@@ -133,7 +129,7 @@ get "/recipe/:id/comment/new" do
     view "new_comment"
 end
 
-post "/comment/create" do
+post "/recipe/:id/comment/create" do
     puts "params: #{params}"
     
     @recipe = recipe_table.where(id: params["id"]).to_a[0]
