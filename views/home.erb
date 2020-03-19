@@ -73,25 +73,25 @@
 
                 <div class="col-sm-2">
                     <p>
-                        <a href="/recipe"><%= recipe[:userid] %> <a>
+                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:userid] %> <a>
                     </p>
                 </div>
 
                 <div class="col-sm-1">
                     <p>
-                        <a href="/recipe"><%= recipe[:kwest] %> <a>
+                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:kwest] %> <a>
                     </p>
                 </div>
 
                 <div class="col-sm-2">
                     <p>
-                        <a href="/recipe"><%= recipe[:location] %> <a>
+                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:location] %> <a>
                     </p>
                 </div>
 
                 <div class="col-sm-5">
                     <p>
-                        <a href="/recipe"><%= recipe[:shortdesc] %> <a>
+                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:shortdesc] %> <a>
                     </p>
                 </div>
         </div>

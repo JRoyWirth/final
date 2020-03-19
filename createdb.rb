@@ -46,6 +46,7 @@ end
 recipe_table = DB.from(:recipe)
 
 recipe_table.insert(
+                    user_id: "1",
                     year: "2021",
                     kwest: "Amazing Race",
                     title: "BBQ Ribs",
@@ -63,6 +64,7 @@ recipe_table.insert(
                     )
 
 recipe_table.insert(
+                    user_id: "2",
                     year: "2021",
                     kwest: "Amazing Race",
                     title: "Lasagna",
@@ -80,6 +82,7 @@ recipe_table.insert(
                     )
 
 recipe_table.insert(
+                    user_id: "3",
                     year: "2021",
                     kwest: "Amazing Race",
                     title: "Vegetarian Pulled BBQ Sandy",

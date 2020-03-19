@@ -82,6 +82,8 @@
             </p>
         </div>
         <div class="col-sm-4">
+            <% @recipe_user = @user_table.where(id: @recipe[:user_id]).to_a[0] %>
+            <h4> <%= @recipe_user[:namefirst] %> <%= @recipe_user[:namelast] %> </h4>
             <p>
                 <iframe
                 frameborder="0" style="border:0"
@@ -118,7 +120,10 @@
     </div>
 
     <div class="row">
-        <p>placeholder for likes</p>
+        <h6>Recipe likes:    
+            <% @comments_this_recipe_table = @comment_table.where(recipe_id: @recipe[:id], like: true).to_a %>
+            <%= @comments_this_recipe_table.count %>
+        </h6>
     </div>
 
 <div class = "row">

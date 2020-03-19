@@ -83,11 +83,12 @@ get "/submit" do
     view "submit"
 end
 
-get "/recipe/create" do
+post "/recipe/create" do
     puts "params: #{params}"
       
 
     recipe_table.insert(
+        user_id: session["user_id"],
         year: params["year"],
         kwest: params["kwest"],
         title: params["title"],
