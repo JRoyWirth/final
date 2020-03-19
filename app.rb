@@ -110,15 +110,42 @@ end
 get "/recipe/:id" do
     puts "params: #{params}"
 
-      
-
-    pp recipe_table.all.to_a
-
     pp recipe_table.where(id: params["id"]).to_a[0]
     @recipe = recipe_table.where(id: params["id"]).to_a[0]
 
+    pp @recipe
+
+    @comment_table = comment_table
+
+    @comment = comment_table.where(recipe_id: @recipe[:id]).to_a[0]
+    
+    pp @comment_table
+
 
     view "recipe"
+end
+
+get "/recipe/:id/comment/new" do
+    puts "params: #{params}"
+
+    @recipe = recipe_table.where(id: params["id"]).to_a[0]
+
+    view "new_comment"
+end
+
+post "/comment/create" do
+    puts "params: #{params}"
+    
+    @recipe = recipe_table.where(id: params["id"]).to_a[0]
+
+    comment_table.insert(
+        user_id: session["user_id"],
+        recipe_id: params["id"],
+        like: params["like"],
+        comment: params["comment"]  
+    )
+
+    view "create_comment"
 end
 
 get "/logout" do

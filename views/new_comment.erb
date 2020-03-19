@@ -54,84 +54,30 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="row">
-        <p>Placeholder for photo</p>
-    </div> 
-
-    <div class="row">
-        <div class="col-sm-4">
-            <p>
-                <%= @recipe[:title] %>
-            </p>
-        </div>
-        <div class="col-sm-8">
-            <p>
-                <%= @recipe[:shortdesc] %>
-            </p>
-        </div>
+    <div class = "row">
+        <p></p>
     </div>
-    
-    <div class="row">
-        <div class="col-sm-4">
-            <p>
-                <iframe
-                frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-                &q=<%= @recipe[:location] %>&zoom=5" allowfullscreen>
-                </iframe>
-            </p>
-        </div>
-        <div class="col-sm-4">
-            <p>
-                <iframe
-                frameborder="0" style="border:0"
-                src="<%= @recipe[:headshot] %>" allowfullscreen>
-                </iframe>
-            [placeholder for a headshot]
-            </p>
-        </div>
-        <div class="col-sm-4">
-            <p>
-                <%= @recipe[:whyrecipe] %>
-            </p>
-        </div>
+    <div class = "row">
+        <h4><%= @recipe[:title] %></h4> 
     </div>
-
     <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <p>
-                    <%= @recipe[:ingredients] %>
-                </p>
-            </div>
-            <div class="row">
-                <p>
-                    <%= @recipe[:subs] %>
-                </p>
-            </div>
+        <div class="col-sm">
+            <form action="/comment/create" method="post">
+                <div class="form-group">
+                    <h7>Did you like this recipe?:<br></h7>
+                        <input type="checkbox" name="like" value="1">
+                            <label for="like"> check if Yes! </label><br>
+                </div>
+            
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <input type="text" class="form-control" placeholder="please share your feedback" name="comment">
+                </div>
+            <br> <button type="submit" class="btn btn-primary">Submit</button> <br><br>
+            </form>     
         </div>
-        <div class="col-sm-6">
-            <p>
-                <%= @recipe[:directions] %>
-            </p>
-        </div>
-    </div>
-
-    <div class="row">
-        <p>placeholder for likes</p>
-    </div>
-
-    <div class="row">
-        <% if @current_user %>
-            <a href="/recipe/<%= @recipe[:id] %>/comment/new" class="btn btn-primary">comment on this recipe</a>
-        <% else %>
-            <a href="/" class="btn btn-danger">please sign in to comment</a>
-        <% end %>
-    </div>
-
-
 </div>
-
+</div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Kellogg Recipe Project</p>

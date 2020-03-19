@@ -120,4 +120,5 @@ user_table.insert(
                     )
 
 
+
 puts "Success!"
