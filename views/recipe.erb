@@ -121,16 +121,25 @@
         <p>placeholder for likes</p>
     </div>
 
+<div class = "row">
+    <div class = "col-sm-2">
+        <h6>User Name</h6>
+    </div>
+    <div class = "col-sm">
+        <h6>Comment</h6>
+    </div>
+</div>
 <% for comment in @comment_table %>
     <% if comment[:recipe_id] == @recipe[:id] %>
-        <div class="row">
-            <div class="col-sm-2">
-                <%= comment[:user_id] %>
+            <div class="row">
+                <div class="col-sm-2">
+                    <% @user_of_comment = @user_table.where(id: comment[:user_id]).to_a[0] %>
+                    <p><%= @user_of_comment[:namefirst] %> <%= @user_of_comment[:namelast] %></p>
+                </div>
+                <div class="col-sm">
+                    <%= comment[:comment] %>
+                </div>                
             </div>
-            <div class="col-sm">
-                <%= comment[:comment] %>
-            </div>                
-        </div>
     <% else %>
     <% end %>
 <% end %>
