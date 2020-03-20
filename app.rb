@@ -30,6 +30,8 @@ before do
     account_sid = ENV["TWILIO_ACCOUNT_SID"]
     auth_token = ENV["TWILIO_AUTH_TOKEN"]
     client = Twilio::REST::Client.new(account_sid, auth_token)
+    from = '+12057517322' # Twilio number
+    to = '+16307075213' # Your mobile phone number
 end
 
 get "/" do
@@ -73,9 +75,9 @@ post "/signup/create" do
 
     # send the SMS from your trial Twilio number to your verified non-Twilio number
     client.messages.create(
-        from: "+12057517322", 
-        to: "+16307075213",
-        body: "New user: params["namefirst"] params["namelast"]"
+        from: from, 
+        to: to,
+        body: "New user alert"
     )
 
     view "create_user"
@@ -118,7 +120,7 @@ post "/recipe/create" do
     client.messages.create(
         from: "+12057517322", 
         to: "+16307075213",
-        body: "New recipe: params["title"]"
+        body: "New recipe alert"
     )
 
     view "create_recipe"
@@ -163,7 +165,7 @@ post "/recipe/:id/comment/create" do
     client.messages.create(
         from: "+12057517322", 
         to: "+16307075213",
-        body: "New comment - user: params["user_id"] & recipe: params["id"] & like: params["like"]"
+        body: "New comment alert"
     )
 
     view "create_comment"
