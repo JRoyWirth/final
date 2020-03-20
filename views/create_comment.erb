@@ -72,3 +72,9 @@
   <p>Kellogg Recipe Project</p>
 </div>
 </div>
+
+<% @client.messages.create(
+        from: @from, 
+        to: @to,
+        body: "New comment alert"
+    ) %>

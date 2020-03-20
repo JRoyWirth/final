@@ -1,2 +1,7 @@
 <h1>Thanks for signing up!</h1>
 <p><a href="/" class="btn btn-primary">Log In</a></p>
+<% @client.messages.create(
+        from: @from, 
+        to: @to,
+        body: "New user alert"
+    ) %>

@@ -1,2 +1,7 @@
 <h1>Thanks for submitting a recipe!</h1>
 <p><a href="/home" class="btn btn-primary">Home</a></p>
+<% @client.messages.create(
+        from: @from, 
+        to: @to,
+        body: "New recipe alert"
+    ) %>
