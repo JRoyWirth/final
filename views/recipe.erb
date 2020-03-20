@@ -83,7 +83,7 @@
         </div>
         <div class="col-sm-4">
             <% @recipe_user = @user_table.where(id: @recipe[:user_id]).to_a[0] %>
-            <h4> <%= @recipe_user[:namefirst] %> <%= @recipe_user[:namelast] %> </h4>
+            <h3> <%= @recipe_user[:namefirst] %> <%= @recipe_user[:namelast] %> </h3>
             <p>
                 <iframe
                 frameborder="0" style="border:0"

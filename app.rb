@@ -25,6 +25,11 @@ before do
     puts "params: #{params}"
     @user_table = user_table
     @current_user = @user_table.where(id: session["user_id"]).to_a[0]
+
+    # API credentials (found on your Twilio dashboard)
+    account_sid = ENV["TWILIO_ACCOUNT_SID"]
+    auth_token = ENV["TWILIO_AUTH_TOKEN"]
+    client = Twilio::REST::Client.new(account_sid, auth_token)
 end
 
 get "/" do
@@ -66,6 +71,13 @@ post "/signup/create" do
         pwd: BCrypt::Password.create(params["pwd"])
     )
 
+    # send the SMS from your trial Twilio number to your verified non-Twilio number
+    client.messages.create(
+        from: "+12057517322", 
+        to: "+16307075213",
+        body: "New user: params["namefirst"] params["namelast"]"
+    )
+
     view "create_user"
 end
 
@@ -101,6 +113,12 @@ post "/recipe/create" do
         meatless: params["meatless"],
         dairyfree: params["dairyfree"],
         glutenfree: params["glutenfree"],  
+    )
+
+    client.messages.create(
+        from: "+12057517322", 
+        to: "+16307075213",
+        body: "New recipe: params["title"]"
     )
 
     view "create_recipe"
@@ -140,6 +158,12 @@ post "/recipe/:id/comment/create" do
         recipe_id: params["id"],
         like: params["like"],
         comment: params["comment"]  
+    )
+
+    client.messages.create(
+        from: "+12057517322", 
+        to: "+16307075213",
+        body: "New comment - user: params["user_id"] & recipe: params["id"] & like: params["like"]"
     )
 
     view "create_comment"
