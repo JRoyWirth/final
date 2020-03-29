@@ -76,12 +76,14 @@
     <thead>
       <tr>
         <th>Recipe</th>
+        <th>Meal Type</th>
         <th>Contributor</th>
         <th>Program</th>
         <th>Section</th>
         <th>Kwest</th>
         <th>Region</th>
         <th>Description</th>
+        <th>Dietary</th>
       </tr>
     </thead>
     <tbody>
@@ -89,6 +91,10 @@
             <tr>
                 <td>
                     <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:title] %> <a>
+                </td>
+
+                <td>
+                    <%= recipe[:meal]%>
                 </td>
 
                 <td>
@@ -114,6 +120,37 @@
                 
                 <td>
                     <%= recipe[:shortdesc] %>
+                </td>
+
+                <td>
+                    <% if recipe[:meatless] %>
+                        <% if recipe[:dairyfree] %>
+                            <% if recipe[:glutenfree] %>
+                                meat, dairy & gluten free
+                            <% else %>
+                                meat & dairy free
+                            <% end %>
+                        <% else %>
+                            <% if recipe[:glutenfree] %>
+                                meat & gluten free
+                            <% else %>
+                                meat free
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        <% if recipe[:dairyfree] %>
+                            <% if recipe[:glutenfree] %>
+                                dairy & gluten free
+                            <% else %>
+                                dairy free
+                            <% end %>
+                        <% else %>
+                            <% if recipe[:glutenfree] %>
+                                gluten free
+                            <% else %>
+                            <% end %>
+                        <% end %>
+                    <% end %>     
                 </td>
             </tr>
         <% end %>    
