@@ -78,8 +78,9 @@
                 </div>
 
                 <div class="col-sm-2">
-                    <p>    
-                    <%= recipe[:userid] %>
+                    <p>
+                    <% user_of_recipe = @user_table.where(id: recipe[:user_id]).to_a[0] %>
+                    <p><%= user_of_recipe[:namefirst] %> <%= user_of_recipe[:namelast] %>
                     </p>
                 </div>
 
