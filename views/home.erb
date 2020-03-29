@@ -69,41 +69,58 @@
         <h4>Please enjoy fantastic recipes from your classmate's kitchens around the world. We hope you will add to our library of stories and recipes!</h4>
     </div>
     
-    <% for recipe in @recipes %>
-        <div class="row">
-                <div class="col-sm-2">
-                    <p>
-                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:title] %> <a>
-                    </p>
-                </div>
 
-                <div class="col-sm-2">
-                    <p>
+<div class="container" style="overflow-x:auto;">
+  <h2>Recipes</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Recipe</th>
+        <th>Contributor</th>
+        <th>Program</th>
+        <th>Section</th>
+        <th>Kwest</th>
+        <th>Region</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for recipe in @recipes %>
+            <tr>
+                <td>
+                    <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:title] %> <a>
+                </td>
+
+                <td>
                     <% user_of_recipe = @user_table.where(id: recipe[:user_id]).to_a[0] %>
-                    <p><%= user_of_recipe[:namefirst] %> <%= user_of_recipe[:namelast] %>
-                    </p>
-                </div>
-
-                <div class="col-sm-1">
-                    <p>
-                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:kwest] %> <a>
-                    </p>
-                </div>
-
-                <div class="col-sm-2">
-                    <p>
-                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:location] %> <a>
-                    </p>
-                </div>
-
-                <div class="col-sm-5">
-                    <p>
-                        <a href="/recipe/<%= recipe[:id]%>"><%= recipe[:shortdesc] %> <a>
-                    </p>
-                </div>
-        </div>
-    <% end %>
+                    <%= user_of_recipe[:namefirst] %> <%= user_of_recipe[:namelast] %>
+                </td>
+                
+                <td>
+                    <%= recipe[:program]%>
+                </td>
+                
+                <td>
+                    <%= recipe[:section]%>
+                </td>
+                
+                <td>
+                    <%= recipe[:kwest] %>
+                </td>
+                
+                <td>
+                    <%= recipe[:location] %>
+                </td>
+                
+                <td>
+                    <%= recipe[:shortdesc] %>
+                </td>
+            </tr>
+        <% end %>    
+    </tbody>
+  </table>
 </div>
+
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Kellogg Recipe Project</p>

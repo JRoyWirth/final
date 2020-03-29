@@ -65,12 +65,36 @@
         <div class="col-sm">
             <form action="/recipe/create" method="post">
                 <div class="form-group">
-                    <label for="year">Year:</label>
-                    <input type="text" class="form-control" placeholder="Kellogg graduation year" name="year">
+                    <label for="program">Program:</label>
+                    <select name="program">
+                        <option value="2Y">2Y</option>
+                        <option value="1Y">1Y</option>
+                        <option value="MMM">MMM</option>
+                        <option value="E&W">E&W</option>
+                        <option value="JV">JV</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="kwest">Kwest:</label>
-                    <input type="text" class="form-control" placeholder="Kellogg kwest trip name" name="kwest">
+                    <label for="year">Kellogg Graduation Year:</label>
+                    <select name="year">
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="section">Section:</label>
+                    <select name="section">
+                        <option value="Big Dogs">Big Dogs</option>
+                        <option value="Buckets">Buckets</option>
+                        <option value="Bullfrogs">Bullfrogs</option>
+                        <option value="Cash Cows">Cash Cows</option>
+                        <option value="Highlanders">Highlanders</option>
+                        <option value="Moose">Moose</option>
+                        <option value="Poets">Poets</option>
+                        <option value="Turkeys">Turkeys</option>
+                        <option value="Roadrunners">Roadrunners</option>
+                        <option value="E&W">E&W</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="title">Title of Recipe:</label>

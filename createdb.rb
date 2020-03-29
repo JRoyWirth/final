@@ -16,8 +16,9 @@ end
 DB.create_table! :recipe do
   primary_key :id
   foreign_key :user_id
+  String :program
   String :year
-  #String :program
+  String :section
   String :kwest
   String :title
   String :shortdesc
@@ -47,7 +48,9 @@ recipe_table = DB.from(:recipe)
 
 recipe_table.insert(
                     user_id: "1",
+                    program: "2Y",
                     year: "2021",
+                    section: "Buckets",
                     kwest: "Amazing Race",
                     title: "BBQ Ribs",
                     shortdesc: "Sous-vide style midwestern BBQ ribs with homemade sauce",
@@ -65,7 +68,9 @@ recipe_table.insert(
 
 recipe_table.insert(
                     user_id: "2",
+                    program: "JV",
                     year: "2021",
+                    section: "Buckets",
                     kwest: "Amazing Race",
                     title: "Lasagna",
                     shortdesc: "Lasagna with meat sauce",
@@ -83,7 +88,9 @@ recipe_table.insert(
 
 recipe_table.insert(
                     user_id: "3",
+                    program: "2Y",
                     year: "2021",
+                    section: "Poets",
                     kwest: "Amazing Race",
                     title: "Vegetarian Pulled BBQ Sandy",
                     shortdesc: "A vege take on a Texas classic BBQ handheld",
